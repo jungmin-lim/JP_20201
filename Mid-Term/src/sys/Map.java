@@ -4,7 +4,7 @@ import player.*;
 
 public class Map {
 
-    public static int bSize = 10;
+    public static int bSize = 8;
     public static int[][] board = new int[Map.bSize+2][Map.bSize+2];
     public final static int[][] vec = {
         {-1, -1}, {-1, 0}, {-1, 1},
@@ -19,10 +19,10 @@ public class Map {
                 Map.board[i][j] = 0;
             }
         }
-        Map.board[5][5] = 1;
-        Map.board[5][6] = -1;
-        Map.board[6][5] = -1;
-        Map.board[6][6] = 1;
+        Map.board[Map.bSize/2][Map.bSize/2] = 1;
+        Map.board[Map.bSize/2][Map.bSize/2+1] = -1;
+        Map.board[Map.bSize/2+1][Map.bSize/2] = -1;
+        Map.board[Map.bSize/2+1][Map.bSize/2+1] = 1;
 
         for(int i = 0; i < Map.bSize+2; ++i){
             Map.board[0][i] = 3;
