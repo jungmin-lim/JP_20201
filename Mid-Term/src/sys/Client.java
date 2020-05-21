@@ -18,8 +18,8 @@ public class Client extends Thread{
         this.turn = !this.turn;
     }
 
-    public void playGame(String addr)
-        throws InterruptedException, IOException{
+    public void playGame(String addr, int port)
+        throws IOException{
 
         Scanner input = new Scanner(System.in);
         Scanner convert = null; 
@@ -32,7 +32,7 @@ public class Client extends Thread{
         int x, y;
 
         try{
-            socket = new Socket(addr, 911);
+            socket = new Socket(addr, port);
             System.out.println("Connected");
         
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -125,7 +125,6 @@ public class Client extends Thread{
             System.out.println("You Lose :(");
         }
              
-        Thread.sleep(2000);
         input.close();
         return;
     }   

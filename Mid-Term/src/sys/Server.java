@@ -19,8 +19,8 @@ public class Server {
         this.turn = !this.turn;
     }
 
-    public void playGame()
-        throws InterruptedException, IOException{
+    public void playGame(int port)
+        throws IOException{
 
         Scanner input = new Scanner(System.in);
         Scanner convert = null; 
@@ -33,7 +33,7 @@ public class Server {
         int x, y;
 
         try{
-            server = new ServerSocket(911);
+            server = new ServerSocket(port);
             System.out.println("Server Started");
             System.out.println("Waiting for client...");
 
@@ -125,7 +125,6 @@ public class Server {
             System.out.println("You Lose :(");
         }
 
-        Thread.sleep(2000);
         input.close();
         return;
     }

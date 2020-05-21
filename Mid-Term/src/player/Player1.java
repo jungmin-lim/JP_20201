@@ -26,6 +26,8 @@ public class Player1 extends Player implements Comparable<Player2>{
     @Override
     public boolean isPlacable(int y, int x){
         int k = 1;
+        if(y <= 0 || y > Map.bSize) return false;
+        if(x <= 0 || x > Map.bSize) return false;
         if(Map.board[y][x] != 0) return false;
         for(int i = 0; i < 8; ++i){
             if(Map.board[y+Map.vec[i][0]][x+Map.vec[i][1]] == 1){

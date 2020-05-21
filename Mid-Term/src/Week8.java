@@ -9,7 +9,7 @@ public class Week8 {
         throws InterruptedException {
         Scanner input = new Scanner(System.in);
         String adr;
-        int mod;
+        int mod, port;
 
         System.out.println("<<<  Modes  >>>");
         System.out.println("1. Offline Match");
@@ -20,27 +20,22 @@ public class Week8 {
         mod = input.nextInt();
         adr = input.nextLine();
 
+
+        Sys s = new Sys();
         if(mod == 1){
-            Sys s = new Sys();
-            s.playGame();
+            s.run();
         }
         else if(mod == 2){
-            Server s = new Server();
-            try{
-                s.playGame();
-            }catch(IOException e){
-                System.err.println("I/O error");
-            }
+            System.out.print("Enter Port number of Server to open: ");
+            port = input.nextInt();
+            s.run(port);
         }
         else if(mod == 3){
             System.out.print("Enter IP address of server player to enter match: ");
             adr = input.nextLine(); 
-            Client c = new Client();
-            try{
-                c.playGame(adr);
-            }catch(IOException e){
-                System.err.println("I/O error");
-            }
+            System.out.print("Enter Port number of server to enter match: ");
+            port = input.nextInt();
+            s.run(adr, port);
         }
         else if(mod == -1){
             return;

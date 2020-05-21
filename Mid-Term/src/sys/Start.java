@@ -32,16 +32,14 @@ public class Start {
         return;
     }
 
-    public static void displayStart()
-        throws InterruptedException{
+    public static void displayStart(){
 
         System.out.println("---------------------------------------------------------------------");
         System.out.println("|                                                                   |");
-        System.out.println("|                                 START                             |");
+        System.out.println("|                               START                               |");
         System.out.println("|                                                                   |");
         System.out.println("---------------------------------------------------------------------");
 
-        Thread.sleep(2000);
         return;
     }
 }
